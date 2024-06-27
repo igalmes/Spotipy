@@ -1,0 +1,28 @@
+/* style.css */
+/* Estilo para el botón */
+.btn {
+    position: fixed; /* Fija el botón en la ventana */
+    top: 20px; /* Ajusta la posición desde la parte superior */
+    right: 20px; /* Ajusta la posición desde la derecha */
+    padding: 10px 20px; /* Añade relleno al botón */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    border: none; /* Borde del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    text-decoration: none; /* Elimina subrayado del enlace */
+    display: flex; /* Usa un modelo de caja flexible */
+    align-items: center; /* Alinea los elementos verticalmente */
+}
+
+/* Estilo para el emoji */
+.btn::before {
+    content: '\1F3B6'; /* Unicode del emoji (reproducir música) */
+    margin-right: 10px; /* Espacio entre el emoji y el texto */
+    font-size: 20px; /* Tamaño del emoji */
+}
+
+/* Estilo para hover del botón */
+.btn:hover {
+    background-color: #0056b3; /* Cambia el color de fondo en hover */
+}
