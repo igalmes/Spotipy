@@ -1,0 +1,36 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar en Spotify</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify Logo" class="logo">
+        <h1>Busca tu artista o canción</h1>
+        <form action="/buscar_artista" method="GET">
+            <input type="text" name="artist_name" placeholder="Escribe el nombre del artista..." required>
+            <button type="submit">Buscar</button>
+        </form>
+        <form action="/buscar_cancion" method="GET">
+            <input type="text" name="cancion_name" placeholder="Escribe el nombre de la canción..." required>
+            <button type="submit">Buscar</button>
+        </form>
+        
+        {% if artist_info %}
+        <div class="artist-info">
+            <h2>{{ artist_info.name }}</h2>
+            <img src="{{ artist_image }}" alt="Imagen de {{ artist_info.name }}" width="200">
+            <p><strong>Seguidores:</strong> {{ artist_info.followers }}</p>
+            <p><strong>Géneros:</strong> {{ artist_info.genres | join(', ') }}</p>
+            <p><strong>Popularidad:</strong> {{ artist_info.popularity }}/100</p>
+            <p><strong>Ranking Global:</strong> #{{ artist_info.rank }}</p>
+            <p><strong>ID de Spotify:</strong> {{ artist_info.id }}</p>
+            <p><strong>Link de Spotify:</strong> <a href="{{ artist_info.spotify_url }}" target="_blank">Escuchar en Spotify</a></p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

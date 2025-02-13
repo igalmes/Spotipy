@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la Canción</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Detalles de la Canción</h1>
+        
+        {% if track_info %}
+        <div class="track-info">
+            <h2>{{ track_info.name }}</h2>
+            <img src="{{ track_info.album_image }}" alt="Portada del álbum" width="200">
+            <p><strong>Artista:</strong> {{ track_info.artist }}</p>
+            <p><strong>Álbum:</strong> {{ track_info.album }}</p>
+            <p><strong>Fecha de Lanzamiento:</strong> {{ track_info.release_date }}</p>
+            <p><strong>Popularidad:</strong> {{ track_info.popularity }}/100</p>
+            <p><strong>Duración:</strong> {{ track_info.duration_ms // 60000 }} min {{ (track_info.duration_ms // 1000) % 60 }} seg</p>
+            <p><strong>Preview:</strong> 
+                {% if track_info.preview_url %}
+                <audio controls>
+                    <source src="{{ track_info.preview_url }}" type="audio/mpeg">
+                    Tu navegador no soporta la reproducción de audio.
+                </audio>
+                {% else %} No disponible {% endif %}
+            </p>
+            <p><strong>Link en Spotify:</strong> <a href="{{ track_info.spotify_url }}" target="_blank">Escuchar en Spotify</a></p>
+        </div>
+        {% else %}
+        <p>No se encontró información de la canción.</p>
+        {% endif %}
+        
+        <a href="/">🔙 Volver</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "spotipy",
+  "version": "1.0.0",
+  "description": "Proyecto Flask con Spotipy",
+  "main": "app.py",
+  "scripts": {
+    "dev": "python app.py"
+  },
+  "dependencies": {}
+}
+
